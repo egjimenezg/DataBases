@@ -62,3 +62,25 @@ fecha_inicio integer(15) not null,
 fecha_final integer(15) not null
 );
 */
+
+INSERT INTO Galaxia(nombre) VALUES("Motorola"),
+								   ("Otro"),
+								   ("Sony"),
+								   ("Andromeda"),
+								   ("Equis"),
+								   ("Yolo"),
+								   ("Samsung"),
+								   ("Cat"),
+								   ("Nay"),
+								   ("Many");
+						
+INSERT INTO SistemaSolar(nombre) VALUES	("Orion"), ("Oreo"), ("Chokis"), ("Principe"), ("Florentina"),
+										("Emperador"), ("Pirueta"), ("Arcoiris"), ("Maria"), ("Animalito");
+
+INSERT INTO Planeta VALUES (""Tierra",  ), ("Zeus"), ("Hip"), ("Iron"), ("Big Red"),
+									("Wachi"), ("Sold"), ("Pi"), ("Monitor"), ("Ego");
+									
+INSERT INTO Sol(nombre) VALUES ("Alfa"), ("Horror"), ("Blackbide"), ("Billy"), ("Shinne"),
+								("Verse"), ("Bom"), ("Hiden"), ("Zaid"), ("Prite");
+										
+										
