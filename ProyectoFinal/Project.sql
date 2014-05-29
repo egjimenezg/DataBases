@@ -219,3 +219,83 @@ INSERT INTO Luna(codigoPlaneta, nombreLuna) VALUES ("00001", "Red Moon"),
                                                    ("00008","Green Moon"), 
                                                    ("00009", "White Moon"), 
                                                    ("00010", "Purple Moon");
+
+INSERT INTO Area(nombreArea) VALUES ("51"),
+									("Chica"),
+									("Grande"),
+									("Norte"),
+									("Sur"),
+									("Este"), 
+									("Oeste"),
+									("Suroeste"),
+									("Sureste"),
+									("Noreste");
+
+INSERT INTO AreaPlaneta(idArea, codigoPlaneta) VALUES ("1", "00001"),
+													  ("2", "00002"),
+													  ("3", "00003"),
+													  ("4", "00004"),
+													  ("5", "00005"),
+													  ("6", "00006"),
+													  ("7", "00007"),
+													  ("8", "00008"),
+													  ("9", "00009"),
+													  ("10", "00010");
+													  
+INSERT INTO Gas(nombreGas) VALUES ("Helio"),
+								  ("Exano"),
+								  ("Etano"),
+								  ("Propano"),
+								  ("Edelgas"),
+								  ("Neon"),
+								  ("Kripton"),
+								  ("Radon"),
+								  ("Xenon"),
+								  ("Argon");
+								  
+INSERT INTO GasArea(idGas, idArea) VALUES ("1", "1"),
+										  ("2", "2"),
+										  ("3", "3"),
+										  ("4", "4"),
+										  ("5", "5"),
+										  ("6", "6"),
+										  ("7", "7"),
+										  ("8", "8"),
+										  ("9", "9"),
+										  ("10", "10");
+										  
+INSERT INTO Especie(nombreCientifico, nombreLocal) VALUES ("Helianthus annus", "Girasol"),
+														  ("Zea mays", "Maiz"),
+														  ("Daucus carota", "Zanahoria"),
+														  ("Lactuca sativa", "Lechuga"),
+														  ("Allium cepa", "Cebolla"),
+														  ("Gorilla gorilla", "Gorilla"),
+														  ("Mus musculus", "Raton"),
+														  ("Delphinus delphis", "Delfin"),
+														  ("Columba livia", "Paloma"),
+														  ("Bos taurus", "Vaca");
+														  
+INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VALUES ("6", "4", "2", "2"),
+																					("7", "4", "2", "5"),
+																					("8", "3", "2", "3"),
+																					("9", "2", "2", "6"),
+																					("10", "4", "2", "7");
+
+INSERT INTO Flora(idEspecie) VALUES ("1"),
+									("2"),
+									("3"),
+									("4"),
+									("5");
+
+INSERT INTO Mineral(nombreCientifico, nombreLocal, existencia) VALUES ("Sulfuro de Plomo", "Galena", "122"),
+																	  ("Grafituloides", "Carbono", "1334"),
+																	  ("Dioxido de Uranio", "Uraninita", "86"),
+																	  ("Dioxido de Titanio", "Rutilo", "677"),
+																	  ("Fluoruro de Calcio", "Fluorita", "354"),
+																	  ("Retinol", "A", "43444"),
+																	  ("Tiamina", "B1", "67"),
+																	  ("Cianocobalamina", "B12", "44423"),
+																	  ("Enantiómero", "Carbom", "3444"),
+																	  ("Niacina", "B3", "2333");
+																	  
+			
