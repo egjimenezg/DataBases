@@ -73,9 +73,10 @@ INSERT INTO Sol( idSistemaSolar, tiempo_vida, tiempo_restante) VALUES  ("1", "3.
 																		("5", "9834.2", "1.9"), ("6", "31221.2", "70.0"), ("7", "34.222", "90"),("8", "937334.2", "122.9"),
 																		("9", "9993", "44"), ("10", "834.2", "1.9");
 
-INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES ("00001", "1", "Ego", "Bellatrix", "22332.13"), ("00002", "2", "", "Lestrange", "523.51"), 
+INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES ("00001", "1", "Ego", "Bellatrix", "22332.13"), ("00002", "2", "Bomabi", "Lestrange", "523.51"),
 																					("00003", "3", "Tierra", "Marvell", "5853.3"), ("00004", "4", "Murphio", "Severus", "1111.11"),
 																					("00005", "5", "M2-12", "Albus", "67634.44"),("00006", "6", "Totonaine", "Neville", "3312.3"),
 																					("00007", "7", "Overlook", "Jack", "3873.01"), ("00008", "8", "Maine", "Carrietta", "7555.12"),
-																					("00009", "9", "Chamberline", "Doby", "88878.34"), ("00010", "10", "Morti", "Riddle", "666.66");
-																					
+																					("00009", "9", "Chamberline", "Doby", "88878.34"), ("00010", "10", "Morti", "Riddle", "666.66"); 
+INSERT INTO Luna(codigoPlaneta, nombreLuna) VALUES ("00001", "Red Moon"), ("00002", "Blue Moon"), ("00003", "Orange Moon"),("00004", "Brown Moon"), ("00005", "Cyan Moon"), ("00006", "black Moon"),
+													("00007", "Yellow Moon"), ("00008","Green Moon"), ("00009", "White Moon"), ("00010", "Purple Moon");
