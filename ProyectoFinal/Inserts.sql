@@ -1,3 +1,5 @@
+USE ProyectoFinal;
+
 INSERT INTO Galaxia(nombre) VALUES("Motorola"),
                                   ("Otro"),
                                   ("Sony"),
@@ -106,13 +108,15 @@ INSERT INTO Especie(nombreCientifico, nombreLocal) VALUES ("Helianthus annus", "
 							  ("Mus musculus", "Raton"),
 							  ("Delphinus delphis", "Delfin"),
 						 	  ("Columba livia", "Paloma"),
-							  ("Bos taurus", "Vaca");
+							  ("Bos taurus", "Vaca"),
+						          ("Homo Sapiens","Humano");
 
-INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VALUES ("6", "4", "2", "2"),
-										    ("7", "4", "2", "5"),
-										    ("8", "3", "2", "3"),
-										    ("9", "2", "2", "6"),
-										    ("10", "4", "2", "7");
+INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VALUES (6,4,2,2),
+										    (7,4,2,5),
+										    (8, 3,2,3),
+										    (9,2,2,6),
+										    (10,4,2,7),
+										    (11,4,2,10000);
 
 INSERT INTO Flora(idEspecie) VALUES ("1"),
 				    ("2"),
@@ -133,8 +137,19 @@ INSERT INTO Mineral(nombreCientifico, nombreLocal, existencia) VALUES ("Sulfuro 
 
 INSERT INTO Personal(nombre,categoria,rango) VALUES ('Gamaliel Jimenez','Intermedio',3),
                                                     ('Carlos Hernadez','Intermedio',4),
-                                                    ('Salvador','Intermedio',4);
+                                                    ('Salvador','Intermedio',4),
+						    ('Otro Inv','Avanzado',3);
 
-INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investigación de Girasol y Gorila','Conocer las caracteristicas principales de estas especies','03-01-12','06-08-14');
+INSERT INTO Investigador VALUES (1),(4);
+INSERT INTO Geologo VALUES(2),
+			  (3);
 
+INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investigación de Girasol y Gorilla','Conocer las caracteristicas principales de estas especies','03-01-12','06-08-14'),
+								       ('Investigación de Humanos y Lechuga','Conocer la cantidad de humanos que habitan el area y las características más importantes de la lechuga','01-01-90','10-01-14');
+
+
+INSERT INTO ProyectoFloraFauna VALUES (1,1);
+
+INSERT INTO FloraProyectoFloraFauna VALUES (1,1,50,"No tiene efecto curativo","No es venenosa");
+INSERT INTO FaunaProyectoFloraFauna VALUES (1,6,70,183.5);
 

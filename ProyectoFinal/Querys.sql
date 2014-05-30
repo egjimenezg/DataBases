@@ -1,0 +1,3 @@
+USE ProyectoFinal;
+/*Consulta No.5*/
+SELECT P.idPersonal AS ID,CONCAT(P.nombre," ",P.categoria," ",P.rango) AS 'INVESTIGADORES Y GEOLOGOS QUE NO ESTAN INVOLUCRADOS EN ALGÚN PROYECTO' FROM Personal P INNER JOIN Investigador I ON P.idPersonal = I.idPersonal LEFT JOIN ProyectoFloraFauna PF ON I.idPersonal = PF.idInvestigador WHERE PF.idInvestigador IS NULL UNION SELECT P.idPersonal AS ID,CONCAT(P.nombre," ",P.categoria," ",P.rango) AS 'INVESTIGADORES Y GEOLOGOS QUE NO ESTAN INVOLUCRADOS EN ALGÚN PROYECTO' FROM Personal P NATURAL JOIN Geologo G LEFT JOIN ProyectoMineral PM ON G.idPersonal = PM.idGeologo WHERE PM.idGeologo IS NULL;  

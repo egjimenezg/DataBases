@@ -24,6 +24,11 @@ CREATE TABLE Sol(
     FOREIGN KEY(idSistemaSolar) REFERENCES SistemaSolar(idSistemaSolar)
 ) ENGINE = InnoDB;
 
+CREATE TABLE Federacion(
+    idFederacion INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nombreFederacion VARCHAR(40) NOT NULL
+) ENGINE = InnoDB;
+
 CREATE TABLE Planeta(
     codigo VARCHAR(10) NOT NULL PRIMARY KEY,
     idSistemaSolar INTEGER NOT NULL,
@@ -117,8 +122,8 @@ CREATE TABLE Personal(
 );
 
 CREATE TABLE Investigador(
-    idPersonal INTEGER NOT NULL,
-    FOREIGN KEY(idPersonal) REFERENCES Personal(idPersonal)
+    idPersonal INTEGER NOT NULL REFERENCES Personal(idPersonal),
+    PRIMARY KEY(idPersonal)
 );
 
 CREATE TABLE Geologo(
@@ -134,26 +139,35 @@ CREATE TABLE Proyecto(
     fecha_final DATE NOT NULL
 );
 
+
 CREATE TABLE ProyectoFloraFauna(
-    idProyectoFloraFauna INTEGER NOT NULL,
+    idProyecto INTEGER NOT NULL REFERENCES Proyecto(idProyecto),
     idInvestigador INTEGER NOT NULL,
-    aprendizajeDelIdioma DECIMAL(5,2) NOT NULL,
-    FOREIGN KEY(idProyectoFloraFauna) REFERENCES Proyecto(idProyecto),
-    FOREIGN KEY(idInvestigador) REFERENCES Investigador(idPersonal)
+    FOREIGN KEY(idInvestigador) REFERENCES Investigador(idPersonal),
+    PRIMARY KEY(idProyecto)
 );
 
-CREATE TABLE ProyectoFlora(
+CREATE TABLE FloraProyectoFloraFauna(
     idProyectoFloraFauna INTEGER NOT NULL,
-    efectoCurativo VARCHAR(50) NOT NULL,    
+    idFlora INTEGER NOT NULL,
+    aprendizajeDelIdioma INTEGER NOT NULL,
+    efectoCurativo VARCHAR(50) NOT NULL,
     veneno VARCHAR(40) NOT NULL,
-    FOREIGN KEY(idProyectoFloraFauna) REFERENCES Proyecto(idProyecto)
+    PRIMARY KEY(idProyectoFloraFauna,idFlora),
+    FOREIGN KEY(idProyectoFloraFauna) REFERENCES ProyectoFloraFauna(idProyecto),
+    FOREIGN KEY(idFlora) REFERENCES Flora(idEspecie)
 );
 
-CREATE TABLE ProyectoFauna(
+CREATE TABLE FaunaProyectoFloraFauna(
     idProyectoFloraFauna INTEGER NOT NULL,
+    idFauna INTEGER NOT NULL,
+    aprendizajeDelIdioma INTEGER NOT NULL,
     inteligencia DECIMAL(5,2) NOT NULL,
-    FOREIGN KEY(idProyectoFloraFauna) REFERENCES ProyectoFloraFauna(idProyectoFloraFauna)
+    PRIMARY KEY(idProyectoFloraFauna,idFauna),
+    FOREIGN KEY(idProyectoFloraFauna) REFERENCES ProyectoFloraFauna(idProyecto),
+    FOREIGN KEY(idFauna) REFERENCES Fauna(idEspecie)
 );
+
 
 CREATE TABLE ProyectoMineral(
     idProyectoMineral INTEGER NOT NULL,
