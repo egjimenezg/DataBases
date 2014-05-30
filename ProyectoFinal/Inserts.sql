@@ -134,3 +134,7 @@ INSERT INTO Mineral(nombreCientifico, nombreLocal, existencia) VALUES ("Sulfuro 
 INSERT INTO Personal(nombre,categoria,rango) VALUES ('Gamaliel Jimenez','Intermedio',3),
                                                     ('Carlos Hernadez','Intermedio',4),
                                                     ('Salvador','Intermedio',4);
+
+INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investigación de Girasol y Gorila','Conocer las caracteristicas principales de estas especies','03-01-12','06-08-14');
+
+
