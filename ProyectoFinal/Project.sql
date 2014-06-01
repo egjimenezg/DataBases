@@ -13,6 +13,8 @@ CREATE TABLE Galaxia(
 
 CREATE TABLE SistemaSolar(
     idSistemaSolar INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    idGalaxia INTEGER NOT NULL, 
+    FOREIGN KEY(idGalaxia) REFERENCES Galaxia(idGalaxia),
     nombre VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB;
 
@@ -38,6 +40,14 @@ CREATE TABLE Planeta(
     FOREIGN KEY(idSistemaSolar) REFERENCES SistemaSolar(idSistemaSolar)
 ) ENGINE = InnoDB;
 
+CREATE TABLE FederacionPlaneta(
+    idFederacion INTEGER NOT NULL,
+    codigoPlaneta VARCHAR(10) NOT NULL,
+    PRIMARY KEY(idFederacion,codigoPlaneta),
+    FOREIGN KEY(idFederacion) REFERENCES Federacion(idFederacion),
+    FOREIGN KEY(codigoPlaneta) REFERENCES Planeta(codigo)
+) ENGINE = InnoDB;
+
 CREATE TABLE Luna(
     idLuna INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     codigoPlaneta VARCHAR(10) NOT NULL,
@@ -56,7 +66,6 @@ CREATE TABLE AreaPlaneta(
     PRIMARY KEY(idArea,codigoPlaneta),
     FOREIGN KEY(idArea) REFERENCES Area(idArea) ON DELETE CASCADE,
     FOREIGN KEY(codigoPlaneta) REFERENCES Planeta(codigo) ON DELETE CASCADE
-
 ) ENGINE = InnoDB;
 
 CREATE TABLE AreaLuna(
@@ -84,6 +93,14 @@ CREATE TABLE Especie(
     idEspecie INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombreCientifico VARCHAR(30) NOT NULL,
     nombreLocal VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE EspecieArea(
+    idEspecie INTEGER NOT NULL,
+    idArea INTEGER NOT NULL,
+    PRIMARY KEY(idEspecie,idArea),
+    FOREIGN KEY(idEspecie) REFERENCES Especie(idEspecie),
+    FOREIGN KEY(idArea) REFERENCES Area(idArea)
 );
 
 CREATE TABLE Fauna(
@@ -177,3 +194,10 @@ CREATE TABLE ProyectoMineral(
     FOREIGN KEY(idProyectoMineral) REFERENCES Proyecto(idProyecto),
     FOREIGN KEY(idGeologo) REFERENCES Geologo(idPersonal)
 );
+/*
+CREATE TABLE MineralProyecto(
+    idProyectoMineral INTEGER NOT NULL,
+    idMineral INTEGER NOT NULL,
+    PRIMARY KEY(idProyectoMineral,idMineral),
+    FOREIGN KEY (idProyectoMineral) REFERENCES ProyectoMineral(idProyectoMine)
+);*/

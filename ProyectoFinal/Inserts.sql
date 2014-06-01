@@ -11,16 +11,16 @@ INSERT INTO Galaxia(nombre) VALUES("Motorola"),
                                   ("Nay"),
                                   ("Many");
 
-INSERT INTO SistemaSolar(nombre) VALUES	("Orion"), 
-                                        ("Oreo"),
-                                        ("Chokis"),
-                                        ("Principe"),
-                                        ("Florentina"),
-                                        ("Emperador"),
-                                        ("Pirueta"),
-                                        ("Arcoiris"),
-                                        ("Maria"),
-                                        ("Animalito");
+INSERT INTO SistemaSolar(nombre,idGalaxia) VALUES	("Orion",1), 
+                                        		("Oreo",2),
+                                       			("Chokis",3),
+                                        		("Principe",4),
+                                        ("Florentina",5),
+                                        ("Emperador",6),
+                                        ("Pirueta",7),
+                                        ("Arcoiris",8),
+                                        ("Maria",9),
+                                        ("Animalito",10);
 
 INSERT INTO Sol( idSistemaSolar, tiempo_vida, tiempo_restante) VALUES  ("1", "3.14", "4.9"), 
                                                                        ("2", "434.4", "545.3"),
@@ -32,6 +32,8 @@ INSERT INTO Sol( idSistemaSolar, tiempo_vida, tiempo_restante) VALUES  ("1", "3.
                                                                        ("8", "937334.2", "122.9"),
                                                                        ("9", "9993", "44"),
                                                                        ("10", "834.2", "1.9");
+INSERT INTO Federacion(nombreFederacion) VALUES ("Alfa Centauri"),
+			      			("Gama 3XY");
 
 INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES ("00001", "1", "Ego", "Bellatrix", "22332.13"), 
                                                                                  ("00002", "2", "Bomabi", "Lestrange", "523.51"),
@@ -43,6 +45,11 @@ INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES
                                                                                  ("00008", "8", "Maine", "Carrietta", "7555.12"),
                                                                                  ("00009", "9", "Chamberline", "Doby", "88878.34"),
                                                                                  ("00010", "10", "Morti", "Riddle", "666.66");
+
+INSERT INTO FederacionPlaneta(idFederacion,codigoPlaneta) VALUES(1,"00001"),
+								(1,"00002"),
+								(2,"00003"),
+				    				(2,"00004");
  
 INSERT INTO Luna(codigoPlaneta, nombreLuna) VALUES ("00001", "Red Moon"), 
                                                    ("00002", "Blue Moon"), 
@@ -111,6 +118,15 @@ INSERT INTO Especie(nombreCientifico, nombreLocal) VALUES ("Helianthus annus", "
 							  ("Bos taurus", "Vaca"),
 						          ("Homo Sapiens","Humano");
 
+INSERT INTO EspecieArea VALUES(1,1),
+			      (2,1),
+			      (3,2),
+			      (4,2),
+			      (5,3),
+			      (6,3),
+			      (7,4),
+			     (11,4);
+
 INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VALUES (6,4,2,2),
 										    (7,4,2,5),
 										    (8, 3,2,3),
@@ -149,6 +165,7 @@ INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investi
 
 
 INSERT INTO ProyectoFloraFauna VALUES (1,1);
+INSERT INTO ProyectoFloraFauna VALUES (2,1);
 
 INSERT INTO FloraProyectoFloraFauna VALUES (1,1,50,"No tiene efecto curativo","No es venenosa");
 INSERT INTO FaunaProyectoFloraFauna VALUES (1,6,70,183.5);
