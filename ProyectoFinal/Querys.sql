@@ -30,10 +30,41 @@ INNER JOIN AreaPlaneta AP ON P.codigo = AP.codigoPlaneta INNER JOIN Area A ON AP
 INNER JOIN Especie E ON EA.idEspecie = E.idEspecie WHERE G.nombre = 'Andromeda';
 
 /*Consulta 4*/
-SELECT F.nombreFederacion FROM Federacion F INNER JOIN FederacionPlaneta FP ON F.idFederacion = FP.idFederacion INNER JOIN Planeta P 
-ON FP.codigoPlaneta = P.codigo INNER JOIN AreaPlaneta AP ON AP.codigoPlaneta = P.codigo INNER JOIN Area A ON AP.idArea = A.idArea 
-INNER JOIN EspecieArea EA ON E;
+SELECT F.nombreFederacion,A.nombreArea,P.nombre,E.nombreCientifico FROM Federacion F INNER JOIN FederacionPlaneta FP ON F.idFederacion = FP.idFederacion INNER JOIN Planeta P 
+ON FP.codigoPlaneta = P.codigo INNER JOIN AreaPlaneta AP ON AP.codigoPlaneta = P.codigo INNER JOIN Area A ON AP.idArea = A.idArea
+INNER JOIN EspecieArea EA ON A.idArea = EA.idArea INNER JOIN Especie E ON EA.idEspecie = E.idEspecie GROUP BY F.nombreFederacion;
+
+DROP PROCEDURE getEspecies;
+DELIMITER //
+CREATE PROCEDURE getEspecies()
+BEGIN	
+	DECLARE federacion VARCHAR(100);
+	DECLARE done INTEGER DEFAULT 0;
+
+	DECLARE federacion_cursor CURSOR FOR SELECT F.nombreFederacion FROM Federacion F;
+	
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;	
+	OPEN federacion_cursor;
+		get_especies: LOOP
+			FETCH federacion_cursor INTO federacion;
+			IF done = 1 THEN 
+				LEAVE get_especies;
+			END IF;
+			SELECT federacion;
+			SELECT E.nombreCientifico,E.nombreLocal FROM Especie E WHERE E.idEspecie NOT IN (SELECT EA.idEspecie FROM 
+				   Federacion F INNER JOIN FederacionPlaneta FP ON F.idFederacion = FP.idFederacion INNER JOIN 
+				   Planeta P ON FP.codigoPlaneta = P.codigo INNER JOIN AreaPlaneta AP ON AP.codigoPlaneta = P.codigo INNER JOIN 
+				   Area A ON AP.idArea = A.idArea  INNER JOIN EspecieArea EA ON A.idArea = EA.idArea WHERE F.nombreFederacion = federacion);
+		END LOOP get_especies;
+	CLOSE federacion_cursor;
+END //
+DELIMITER;
 
 /*Consulta 5*/
 SELECT P.idPersonal AS ID,CONCAT(P.nombre," ",P.categoria," ",P.rango) AS 'INVESTIGADORES Y GEOLOGOS QUE NO ESTAN INVOLUCRADOS EN ALGÚN PROYECTO' FROM Personal P INNER JOIN Investigador I ON P.idPersonal = I.idPersonal LEFT JOIN ProyectoFloraFauna PF ON I.idPersonal = PF.idInvestigador WHERE PF.idInvestigador IS NULL UNION 
 SELECT P.idPersonal AS ID,CONCAT(P.nombre," ",P.categoria," ",P.rango) AS 'INVESTIGADORES Y GEOLOGOS QUE NO ESTAN INVOLUCRADOS EN ALGÚN PROYECTO' FROM Personal P NATURAL JOIN Geologo G LEFT JOIN ProyectoMineral PM ON G.idPersonal = PM.idGeologo WHERE PM.idProyectoMineral IS NULL; 
+
+
+
+SELECT A.nombreArea,EA.idEspecie FROM Federacion F INNER JOIN FederacionPlaneta FP ON F.idFederacion = FP.idFederacion INNER JOIN Planeta P ON FP.codigoPlaneta = P.codigo INNER JOIN AreaPlaneta AP ON AP.codigoPlaneta = P.codigo INNER JOIN Area A ON AP.idArea = A.idArea 
+INNER JOIN EspecieArea EA ON A.idArea = EA.idArea WHERE F.nombreFederacion = "Gama 3XY";
