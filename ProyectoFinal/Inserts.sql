@@ -11,16 +11,16 @@ INSERT INTO Galaxia(nombre) VALUES("Motorola"),
                                   ("Nay"),
                                   ("Many");
 
-INSERT INTO SistemaSolar(nombre,idGalaxia) VALUES	("Orion",1), 
-                                        		("Oreo",2),
-                                       			("Chokis",3),
-                                        		("Principe",4),
-                                        ("Florentina",5),
-                                        ("Emperador",6),
-                                        ("Pirueta",7),
-                                        ("Arcoiris",8),
-                                        ("Maria",9),
-                                        ("Animalito",10);
+INSERT INTO SistemaSolar(nombre,idGalaxia) VALUES ("Orion",1), 
+                                        	  ("Oreo",2),
+                                       		  ("Chokis",3),
+                                        	  ("Principe",4),
+                                        	  ("Florentina",5),
+                                        	  ("Emperador",6),
+                                        	  ("Pirueta",7),
+                                        	  ("Arcoiris",8),
+                                        	  ("Maria",9),
+                                        	  ("Animalito",10);
 
 INSERT INTO Sol( idSistemaSolar, tiempo_vida, tiempo_restante) VALUES  ("1", "3.14", "4.9"), 
                                                                        ("2", "434.4", "545.3"),
@@ -33,7 +33,7 @@ INSERT INTO Sol( idSistemaSolar, tiempo_vida, tiempo_restante) VALUES  ("1", "3.
                                                                        ("9", "9993", "44"),
                                                                        ("10", "834.2", "1.9");
 INSERT INTO Federacion(nombreFederacion) VALUES ("Alfa Centauri"),
-			      			("Gama 3XY");
+			      								("Gama 3XY");
 
 INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES ("00001", "1", "Ego", "Bellatrix", "22332.13"), 
                                                                                  ("00002", "2", "Bomabi", "Lestrange", "523.51"),
@@ -49,7 +49,7 @@ INSERT INTO Planeta(codigo, idSistemaSolar, nombre, lider, distancia_sol) VALUES
 INSERT INTO FederacionPlaneta(idFederacion,codigoPlaneta) VALUES(1,"00001"),
 								(1,"00002"),
 								(2,"00003"),
-				    				(2,"00004");
+				    			(2,"00004");
  
 INSERT INTO Luna(codigoPlaneta, nombreLuna) VALUES ("00001", "Red Moon"), 
                                                    ("00002", "Blue Moon"), 
@@ -107,25 +107,27 @@ INSERT INTO GasArea(idGas, idArea) VALUES ("1", "1"),
 					  ("10", "10");
 
 INSERT INTO Especie(nombreCientifico, nombreLocal) VALUES ("Helianthus annus", "Girasol"),
-							  ("Zea mays", "Maiz"),
-							  ("Daucus carota", "Zanahoria"),
-							  ("Lactuca sativa", "Lechuga"),
-							  ("Allium cepa", "Cebolla"),
-							  ("Gorilla gorilla", "Gorilla"),
-							  ("Mus musculus", "Raton"),
-							  ("Delphinus delphis", "Delfin"),
-						 	  ("Columba livia", "Paloma"),
-							  ("Bos taurus", "Vaca"),
-						          ("Homo Sapiens","Humano");
+							  							  ("Zea mays", "Maiz"),
+							  							  ("Daucus carota", "Zanahoria"),
+							  							  ("Lactuca sativa", "Lechuga"),
+							   							  ("Allium cepa", "Cebolla"),
+							  							  ("Gorilla gorilla", "Gorilla"),
+							  							  ("Mus musculus", "Raton"),
+							  							  ("Delphinus delphis", "Delfin"),
+						 	  							  ("Columba livia", "Paloma"),
+							  							  ("Bos taurus", "Vaca"),
+						          						  ("Homo Sapiens","Humano");
 
 INSERT INTO EspecieArea VALUES(1,1),
-			      (2,1),
-			      (3,2),
-			      (4,2),
-			      (5,3),
-			      (6,3),
-			      (7,4),
-			     (11,4);
+			      			  (2,1),
+			      			  (3,2),
+			      			  (4,2),
+			      			  (5,3),
+			      			  (6,3),
+			      			  (7,4),
+			     			  (11,4);
+
+INSERT INTO AlimentoEspecie VALUES (1,2,1),(2,1,1),(3,1,1),(4,2,1);
 
 INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VALUES (6,4,2,2),
 										    (7,4,2,5),
@@ -135,10 +137,10 @@ INSERT INTO Fauna(idEspecie, noExtremidades, cantidadOjos, numeroEjemplares) VAL
 										    (11,4,2,10000);
 
 INSERT INTO Flora(idEspecie) VALUES ("1"),
-				    ("2"),
-				    ("3"),
-				    ("4"),
-				    ("5");
+				    				("2"),
+				    				("3"),
+				    				("4"),
+				    				("5");
 
 INSERT INTO Mineral(nombreCientifico, nombreLocal, existencia) VALUES ("Sulfuro de Plomo", "Galena", "122"),
 								      ("Grafituloides", "Carbono", "1334"),
@@ -154,14 +156,14 @@ INSERT INTO Mineral(nombreCientifico, nombreLocal, existencia) VALUES ("Sulfuro 
 INSERT INTO Personal(nombre,categoria,rango) VALUES ('Gamaliel Jimenez','Intermedio',3),
                                                     ('Carlos Hernadez','Intermedio',4),
                                                     ('Salvador','Intermedio',4),
-						    ('Otro Inv','Avanzado',3);
+						    						('Otro Inv','Avanzado',3);
 
 INSERT INTO Investigador VALUES (1),(4);
 INSERT INTO Geologo VALUES(2),
-			  (3);
+			  			  (3);
 
-INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investigación de Girasol y Gorilla','Conocer las caracteristicas principales de estas especies','03-01-12','06-08-14'),
-								       ('Investigación de Humanos y Lechuga','Conocer la cantidad de humanos que habitan el area y las características más importantes de la lechuga','01-01-90','10-01-14');
+INSERT INTO Proyecto(nombre,proposito,fecha_inicio,fecha_final) VALUES ('Investigación de Girasol y Gorilla','Conocer las caracteristicas principales de estas especies','12-01-01','14-05-01'),
+								       								   ('Investigación de Humanos y Lechuga','Conocer la cantidad de humanos que habitan el area y las características más importantes de la lechuga','90-01-01','14-01-14');
 
 
 INSERT INTO ProyectoFloraFauna VALUES (1,1);
@@ -169,4 +171,3 @@ INSERT INTO ProyectoFloraFauna VALUES (2,1);
 
 INSERT INTO FloraProyectoFloraFauna VALUES (1,1,50,"No tiene efecto curativo","No es venenosa");
 INSERT INTO FaunaProyectoFloraFauna VALUES (1,6,70,183.5);
-

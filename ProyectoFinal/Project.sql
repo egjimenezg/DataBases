@@ -117,9 +117,18 @@ CREATE TABLE Flora(
 );
 
 CREATE TABLE Mineral(
+    idMineral INTEGER NOT NULL PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nombreCientifico VARCHAR(30) NOT NULL,
     nombreLocal VARCHAR(30) NOT NULL,
     existencia INTEGER(5) NOT NULL
+);
+
+CREATE TABLE MineralArea(
+    idMineral INTEGER NOT NULL,
+    idArea INTEGER NOT NULL,
+    PRIMARY KEY(idMineral,idArea),
+    FOREIGN KEY(idMineral) REFERENCES Mineral(idMineral),
+    FOREIGN KEY(idArea) REFERENCES Area(idArea)
 );
 
 CREATE TABLE AlimentoEspecie(
@@ -151,7 +160,7 @@ CREATE TABLE Geologo(
 CREATE TABLE Proyecto(
     idProyecto INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
-    proposito VARCHAR(100) NOT NULL,
+    proposito VARCHAR(200) NOT NULL,
     fecha_inicio DATE NOT NULL,
     fecha_final DATE NOT NULL
 );
@@ -189,15 +198,18 @@ CREATE TABLE FaunaProyectoFloraFauna(
 CREATE TABLE ProyectoMineral(
     idProyectoMineral INTEGER NOT NULL,
     idGeologo INTEGER NOT NULL,
+    idMineral INTEGER NOT NULL,
     valorComercial DECIMAL(5,2) NOT NULL,
     propiedades VARCHAR(100) NOT NULL,
     FOREIGN KEY(idProyectoMineral) REFERENCES Proyecto(idProyecto),
+    FOREIGN KEY(idMineral) REFERENCES Mineral(idMineral),
     FOREIGN KEY(idGeologo) REFERENCES Geologo(idPersonal)
 );
-/*
+
 CREATE TABLE MineralProyecto(
     idProyectoMineral INTEGER NOT NULL,
     idMineral INTEGER NOT NULL,
     PRIMARY KEY(idProyectoMineral,idMineral),
-    FOREIGN KEY (idProyectoMineral) REFERENCES ProyectoMineral(idProyectoMine)
-);*/
+    FOREIGN KEY(idProyectoMineral) REFERENCES ProyectoMineral(idProyectoMineral),
+    FOREIGN KEY(idMineral) REFERENCES  Mineral(idMineral)
+);
