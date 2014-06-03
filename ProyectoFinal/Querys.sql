@@ -30,10 +30,6 @@ INNER JOIN AreaPlaneta AP ON P.codigo = AP.codigoPlaneta INNER JOIN Area A ON AP
 INNER JOIN Especie E ON EA.idEspecie = E.idEspecie WHERE G.nombre = 'Andromeda';
 
 /*Consulta 4*/
-SELECT F.nombreFederacion,A.nombreArea,P.nombre,E.nombreCientifico FROM Federacion F INNER JOIN FederacionPlaneta FP ON F.idFederacion = FP.idFederacion INNER JOIN Planeta P 
-ON FP.codigoPlaneta = P.codigo INNER JOIN AreaPlaneta AP ON AP.codigoPlaneta = P.codigo INNER JOIN Area A ON AP.idArea = A.idArea
-INNER JOIN EspecieArea EA ON A.idArea = EA.idArea INNER JOIN Especie E ON EA.idEspecie = E.idEspecie GROUP BY F.nombreFederacion;
-
 DROP PROCEDURE getEspecies;
 DELIMITER //
 CREATE PROCEDURE getEspecies()
